@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CC 485 | Class Profile | Piazza</title>
+    
+    <meta name="description" content="CC 485: Computer Graphics is a course taught at Alexandria University by ">
+    <meta name="author" content="">
+    <meta name="keywords" content="CC 485: Computer Graphics, Alexandria University, ">
+
+    
+
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/topbar.css?v=5261"/>
+    <link type="text/css" href="/third_party/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.8.16.custom.css" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="/css/class_profile/style.css?v=5261"/>
+
+    <link type="text/css" rel="stylesheet" href="/css/reset.css?v=5261" />
+    <link type="text/css" rel="stylesheet" href="/css/plugins/jqModal.css?v=5261" />
+    <link type="text/css" rel="stylesheet" href="/css/plugins/tipsy.css" />
+    <link type="text/css" rel="stylesheet" href="/css/plugins/fancybox-1.3.4.css" />
+    <link type="text/css" rel="stylesheet" href="/css/plugins/jquery-ui-1.8.9/jquery-ui-1.8.9.custom.css" />
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/style.css?v=5261" />
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/app.css?v=5261" />
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/invite.css?v=@css_js_version" />
+    <link type="text/css" rel="stylesheet" href="/css/splash/login_only.css?v=5261" />
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-21514163-1']);
+      _gaq.push(['_trackPageview']);
+
+      
+        _gaq.push(['_trackEvent', 'public_coursepage_view', 'Enrolled Student or Instructor']);
+      
+
+      
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+  <style type="text/css">
+    .modal h3 {
+      font-size: 18px;
+      line-height: 27px;
+    }
+    .modal p {
+      font-size: 13px;
+    }
+  </style>
+  <body>
+    <div class="pageOverlay"></div>
+    <div id="PageAlert"></div>
+
+    <link type="text/css" rel="stylesheet" href="/css/dashboard/topbar.css?v=5261"/>
+  <script type="text/javascript">
+    var dashboardPath = "https://piazza.com/class";
+  </script>
+  <div id="newInstModalsWrapper" style="display: none;">
+    <div id="UIModalWindow_ShareEmailWrapper">
+      <!-- For invitation email in professor welcome view -->
+      <div id="Invite_Inst_Modal_Window" class="UIModalWindow UIConfirmationWindow" style="background: white;">
+        <div class="topbar">Customize Invitation?</div>
+        <div class="content">
+          <div id="content-region" class="content_section">
+            <p>Message:</p>
+            <textarea id="send_email_to_prof_content"></textarea>
+          </div>
+          <div id="subject-region" class="content_section">
+            <p style="margin-bottom: 0px;">Instructor Emails:</p>
+            <p style="font-weight: normal; font-size: 11px;">(optional - we'll send the invitation to our instructors on file!)</p>
+            <input type="text" id="send_email_to_prof_emails" />
+          </div>
+          
+        </div>
+        <ul class="UIActions clearFix">
+          <li id="send_email_to_prof" class="leftFloat"><a class="UIButton edit_cancel_button submit" href="#">Submit</a></li>
+          <li id="send_email_to_prof_cancel" class="rightFloat"><a class="edit_cancel_button cancel" style="line-height: 3;" href="#" onclick="$.fancybox.close();">Cancel</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="UIModalWindow TAvProf" id="Confirmation_TAvProf_onboarding">
+      <div class="topbar">Add Professors/TAs</div>
+      <div class="content">
+        <p>
+          Please indicate whether each instructor is a professor or TA:
+        </p>
+        <table cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td class="instrChoiceTA"><input type="radio" name="instr_email" id="ta_instr_email" checked /><label for="ta_instr_email">TA</label></td>
+            <td class="instrChoiceProf"><input type="radio" name="instr_email" id="prof_instr_email"/><label for="prof_instr_email">Professor</label></td>
+            <td class="instrEmail">instr_email@mail.com</td>
+          </tr>
+
+        </table>
+      </div>
+      <ul class="UIActions clearFix">
+        <li class="leftFloat"><a class="UIButton submit" href="#">Send Invites</a></li>
+        <li class="leftFloat"><a class="UIButton cancel" href="#">Cancel</a></li>
+      </ul>
+    </div>
+    <div class="UIModalWindow TempClassWarning" id="Message_EnterDetails">
+      <div class="topbar">Please Enter Class Details First!</div>
+      <div class="content">
+        <p>
+          Then, you'll be able to enroll your students and instructors. Click on the big orange button on your Q&amp;A home screen.
+        </p>
+      </div>
+      <ul class="UIActions clearFix">
+        <li style="text-align:center"><a class="UIButton submit" href="#">OK</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="TimeoutWarning" class="logout_message">
+    Warning, cannot establish connection with Piazza...
+  </div>
+  <div id="LogoutWarning" class="logout_message">
+    Warning, you have been logged out of the current Piazza session...
+  </div>
+  <div id="PageTopbar">
+    <div class="NewPostPanel_tutorial" style="display: none; width: 100%; height:100%;"></div>
+    
+    <div class="topBar_left clearFix">
+      <div class="logo_wrapper">
+          <div id="PageLogo"></div>
+      </div>
+      <div id="new-current-class" class="button_wrapper">
+        <div id="network_button" class="new_topBar_classes topbar_button no_border clearFix">
+
+
+          <div class="topBar_button_right">
+            <span class="topbar-arrow" style="float: right;">&#9662;</span>
+            <div id="global-network-notifications" class="global-notifications" style="display: none; float: right; margin-right: 5px;">0</div>
+            <div id="global-wishlist-notifications" class="global_notifications_img" style="display: none; float: right;"></div>
+          </div>
+
+          <div class="current-class-name">My Class</div>
+        </div>
+      </div>
+      <div class="new_dropdown_wrapper" style="display: none;">
+        <div id="myClassMenu" class="new_dropdownMenu">
+          <ul id="myClasses" class="new_dropdownMenu_list">
+          </ul>
+          
+          <div id="inactive_network_toggle" class="main" style="font-size: 11px;">Show Inactive Classes</div>
+          
+          <div class="new_dropdown_actions_wrapper clearFix">
+            <div class="new_dropdown_actions" id="create_class_link" style="display: block;">
+              <a onclick="PT.createNewClass(); return false;" href="#">Create a New Class...</a>
+            </div>
+            <div class="new_dropdown_actions" id="class_cloning_link"style="display: block;">
+              <a onclick="PT.goToClassCloning(); return false;" href="#">Clone This Class...</a>
+            </div>
+            <div class="new_dropdown_actions" id="list_classes_link" style="display: block;">
+              <a onclick="PT.goToListOtherClasses(); return false;" id="listYourOtherClassesButton" href="#">List Your Other Classes...</a>
+              <div class="global_notifications_img" style="float: right; margin-top: -3px;"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+
+    <div class="topBar_middle">
+      
+      <div class="question_button_wrapper button_wrapper">
+        <div id="question_button" class="topBar_qa topbar_button split_button clearFix">
+          <div class="topBar_button_left">
+            <div class="topbar_button_label">Q &amp; A</div>
+          </div>
+        </div>
+        <div class="new_dropdown_wrapper" style="display: none;">
+          <div id="question_dropdown" class="new_dropdownMenu">
+            <ul id="question_dropdownMenu" class="new_dropdownMenu_list">
+              
+              <li class="instructorsOnly first_row" onclick='PT.goToClassSettings("InstructorRoster"); return false;'><a href="#">Enroll Instructors</a></li>
+              <li class="clearFix instructorsOnly" style="display:none;" onclick='PT.goToClassSettings("StudentRoster"); return false;'>
+                <a href="#">Enroll Students</a>
+                <div id="enrollmentPrompt" class="dropdown_notifications_img" style="display: none; margin-right: 15px; float: right;"></div>
+              </li>
+              <li id="enrollmentWrapper" class="clearFix instructorsOnly progress_bar_row" style="display:none;">
+                <div class="status_wrapper">
+                  <div id ="enrollmentPercentageWrapper" class="status">
+                    <div id="enrollmentPercentage" class="status_percentage"></div>
+                  </div>
+                  <div id="enrollmentCountWrapper" class="status_count_wrapper">
+                    <div class="enrollment_status_wrapper" style="float:right;">
+
+                      <span id="enrollmentCounts">50 enrolled</span>
+                      <!--
+                      <a href="#" id="editEnrollmentButton" class="submitButton">Edit</a>
+                    -->
+                    </div>
+                    <div class="enrollment_change_wrapper" style="display: none; float:right;">
+                      <span>Estimated Class Size:</span><input id="enrollmentCountInput" value="100" style="width: 25px; margin-right: 5px;" type="text" /><a href="#" id="submitEnrollmentButton" class="submitButton">OK</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              
+              <li onclick="PT.goToNotificationsPage(); return false;"><a href="#">Notifications<span id="global-posts-notifications" class="dropdown_notifications" style="background: #aaa; margin-right: 8px; box-shadow: none;">23</span></a></li>
+              <li onclick="PT.goToStatsPage(); return false;"><a href="#">Student Participation</a></li>
+              
+              <li id="manageClassTags" class="instructorsOnly" onclick='PT.goToClassSettings("TagsAndCategories"); return false;'><a href="#">Manage Class Tags</a></li>
+              <li onclick="PT.goToEndTermReport(); return false;"><a href="#">Class Report</a></li>
+              
+
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="coursePage_button_wrapper button_wrapper">
+        <div id="coursePage_button" class="topBar_course topbar_button split_button clearFix">
+          <div class="topBar_button_left">
+            <div class="topbar_button_label">Course Page</div>
+          </div>
+        </div>
+      </div>
+      <div class="instructor_button_wrapper button_wrapper" style="display:none;">
+        <div id="instructor_button" class="topbar_button split_button user-type topBar_instructor clearFix">
+          <div class="topBar_button_left">
+            <div class="topbar_button_label">Manage Class</div>
+          </div>
+        </div>
+      </div>
+      <div class="button_wrapper" id="signup_button_wrapper" style="display:none;">
+        <div class="topbar_button split_button user-type topBar_signup signup clearFix">
+          <div class="topBar_button_left">
+            <div class="topbar_button_label">Sign up in 2 mins. It's free!</div>
+          </div>
+        </div>
+      </div>
+      <div class="button_wrapper" id="roster_button_wrapper" style="display:none;">
+        <div id="roster_button" class="topbar_button split_button user-type show-tipsy topBar_roster clearFix" original-title="See who else is in your class..." style="position:relative;">
+          <div class="topBar_button_left">
+            <div class="topbar_button_label">Class Roster</div>
+          </div>
+          <div class="global-notifications" style="position: absolute; right:-22px; background: #60BA68;">NEW!</div>
+        </div>
+      </div>
+      
+    
+    </div>
+    
+    <div class="topBar_right">
+    
+      <div class="topbar_icons_wrapper">
+        <div class="show-tipsy topbar_icons class_report" title="Class Report" onclick="PT.goToEndTermReport(); return false;" style="display: none;">
+        </div>
+        <div class="show-tipsy topbar_icons stats" title="Class Statistics" onclick="PT.goToStatsPage(); return false;"></div>
+        <div class="show-tipsy topbar_icons notifications" title="Notifications" onclick="PT.goToNotificationsPage(); return false;" style="display: none;"></div>
+        <div class="global-notifications" id="local-class-notifications" style="display: none; float: right; margin-right: 0px;"></div>
+      </div>
+      <div class="topbar-account-wrapper clearFix">
+        <div id="topbar-account-container">
+          <div id="account-image-container">
+            <div class="dropdownWrapper" id="settingsWrapper">
+              <a href="#" class="toplinks_userProfile">
+                <div class="" id="settingsToggler">
+                  <span class="my-pic-noclick" style="cursor:pointer;">
+                    <div class="user_pic user_pic_gz1mauz97tt7f">
+                      <div class="white_border">
+                        <img title="User" src="https://dvngeac8rg9mb.cloudfront.net/images/dashboard/common/default_user.png" style="width:20px;height:20px">
+                      </div>
+                    </div>
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        
+          <div id="account-name-container"  >
+        
+            <span id="account-name">Mohammad El - ghannam</span>
+            
+            
+          </div>
+        </div>
+
+        
+        <div class="user_button_wrapper button_wrapper">
+          <div id="user_button" class="topbar_button clearFix">
+            <div class="topBar_button_right">
+              <span class="topbar-arrow settings">&#9662;</span>
+            </div>
+          </div>
+
+          <div class="new_dropdown_wrapper leftBarItem" style="display: none;">
+            <div id="user_dropdown" class="new_dropdownMenu">
+              <ul id="user_dropdownMenu" class="new_dropdownMenu_list">
+                <li onclick='PT.goToAccountSettings(); return false;'><a href="#">Account/Email Settings</a></li>
+                <li onclick='PT.goToHelp(); return false;'><a href="#">Piazza Features List</a></li>
+                <li onclick="PT.toggleTutorial();return false;"><a id="tooltip_link" href="#">Turn off Tooltips</a></li>
+                <li onclick='PT.goToContactUs(); return false;'><a href="#">Contact Us</a></li>
+                <li onclick='$("#report_bug_dialog").jqmShow();'><a class="jqModal reportBug" href="#">Report Bug</a></li>
+                <li onclick='PT.goToHomepage(); return false;'><a href="#">Piazza Homepage</a></li>
+              </ul>
+              <div class="new_dropdown_actions_wrapper clearFix">
+                <a class="new_dropdown_actions" onclick="PT.logout();return false;" href="#">Log Out</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </div>
+    <div id="enter_all_classes" class="jqmWindow small">
+      <div class="content" style="padding-bottom: 0px;">
+        <form>
+          <div class="blockItem" style="font-size: 16px; text-align: center; font-weight: medium; margin-bottom: 10px;">
+            Enter all the classes you're taking this term (comma separated):
+          </div>
+          <div id="report_bug_form">
+            <div class="blockItem">
+              <textarea class="bug-report-details" id="all-term-class-details" style="height: 20px; width: 550px; margin: 5px 0px;"></textarea>
+            </div>
+          </div>
+          <div class="blockItem" style="font-style: italic;">
+            Ex: CS 101, ECON 347, IT 412, PSYCH 133, PHYS 141
+          </div>
+        </form>
+      </div>
+      <div class="buttonWrapper" style="border: none; padding: 0px 25px 10px 0px;">
+        <a href="#" class="submit" onclick="return PT.reportTermClasses();" id="submit_bug">Submit</a>
+      </div>
+    </div>
+    <div id="change_password" class="jqmWindow small" zastyle="width: 485px; margin-left: -250px;">
+      <div class="content" style="padding-bottom: 0px;">
+        <form>
+          <div style="font-size: 18px; text-align: center; margin-bottom: 5px;">Verify Class Information</div>
+          <div class="blockItem" style="font-size: 16px; text-align: right; font-weight: 500; margin-bottom: 10px; float: left; width: 150px; margin-top: 10px; margin-right: 15px;">
+            Class Number
+          </div>
+          <div id="class_number">
+            <div class="blockItem">
+              <input id="details-class-number" type="text" style="height: 20px; width: 270px; margin: 5px 0px;"></input>
+            </div>
+          </div>
+          <div class="blockItem" style="font-size: 16px; text-align: right; font-weight: 500; margin-bottom: 10px; float: left; width: 150px; margin-top: 10px; margin-right: 15px;">
+            Class Name
+          </div>
+          <div id="class_name">
+            <div class="blockItem">
+              <input id="details-class-name" type="text" style="height: 20px; width: 270px; margin: 5px 0px;"></input>
+            </div>
+          </div>
+          <div class="blockItem" style="font-size: 16px; text-align: right; font-weight: 500; margin-bottom: 10px; float: left; width: 150px; margin-top: 10px; margin-right: 15px;">
+            Est. Enrollment
+          </div>
+          <div id="class_enrollment">
+            <div class="blockItem">
+              <input id="details-enrollment" type="text" style="height: 20px; width: 270px; margin: 5px 0px;"></input>
+            </div>
+          </div>
+
+
+          <div class="details-user" style="font-size: 18px; text-align: center; margin-bottom: 5px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ddd;">Verify Account Information</div>
+          <div class="blockItem details-user" style="font-size: 16px; text-align: right; font-weight: 500; margin-bottom: 10px; float: left; width: 150px; margin-top: 10px; margin-right: 15px;">
+            User Name
+          </div>
+          <div class="details-user" id="user_name">
+            <div class="blockItem">
+              <input id="details-name" type="text" style="height: 20px; width: 270px; margin: 5px 0px;"></input>
+            </div>
+          </div>
+          <div class="blockItem details-user" style="font-size: 16px; text-align: right; font-weight: 500; margin-bottom: 10px; float: left; width: 150px; margin-top: 10px; margin-right: 15px;">
+            User Email
+          </div>
+          <div class="details-user" id="user_email">
+            <div class="blockItem">
+              <input id="details-email" type="text" style="height: 20px; width: 270px; margin: 5px 0px;"></input>
+            </div>
+          </div>
+          <div class="blockItem details-user" style="font-size: 16px; text-align: right; font-weight: 500; margin-bottom: 10px; float: left; width: 150px; margin-top: 10px; margin-right: 15px;">
+            Create Password
+          </div>
+          <div class="details-user" id="create_password">
+            <div class="blockItem">
+              <input id="details-password-1" type="password" style="height: 20px; width: 270px; margin: 5px 0px;"></input>
+            </div>
+          </div>
+          <div class="blockItem details-user" style="font-size: 16px; text-align: right; font-weight: 500; margin-bottom: 10px; float: left; width: 150px; margin-top: 10px; margin-right: 15px;">
+            Confirm Password
+          </div>
+          <div class="details-user" id="confirm_password">
+            <div class="blockItem">
+              <input id="details-password-2" type="password" style="height: 20px; width: 270px; margin: 5px 0px;"></input>
+            </div>
+          </div>
+          <p style="color: #900; margin-left: 15px; display: none;" id="details-passwords-mismatch">Uh oh! Your passwords don't match. </p>
+          <p style="color: #900; margin-left: 15px; display: none;" id="details-enrollment-missing">Please enter estimated enrollment. </p>
+        </form>
+      </div>
+      <div class="buttonWrapper" style="border: none; padding: 0px 25px 10px 0px; margin-top: 5px;">
+        <a href="#" class="UIButton submit" id="submit_change_password" onclick="return PD.submitChangePassword();">Submit</a>
+      </div>
+    </div>
+
+    <div id="report_bug_dialog" class="jqmWindow small">
+      <div class="titlebar"><img src="/images/dashboard/common/cautiontriangle_small.png" style="vertical-align: text-top;"/> Report a Bug to Piazza</div>
+      <div class="content">
+        <form>
+          <div class="blockItem">
+            Help us make Piazza even better! Tell us about the problem you found.
+            The more details you provide, the faster we can fix it.
+          </div>
+          <div id="report_bug_form">
+            <div class="blockItem">
+              <label for="bug-report-details">Details</label>
+              <textarea class="bug-report-details" id="bug_details"></textarea>
+            </div>
+            <!--<div class="blockItem" style="margin-left: 70px;">
+                <input type="checkbox" class="bug-report-permission" id="bug_can_contact"/>&nbsp;Feel free to contact me about this problem.
+            </div>-->
+          </div>
+          <div class="iformNotification" id="report_bug_thanks" style="display:none;">
+            Thanks for your feedback!
+          </div>
+        </form>
+      </div>
+      <div class="buttonWrapper">
+        <a href="#" class="UIButton submit" onclick="return PT.reportBug();" id="submit_bug">Submit</a>&nbsp;
+        <a href="#" class="UIButton" onclick="$('#report_bug_dialog').jqmHide();return false;">Close</a>
+      </div>
+    </div>
+  
+  <div id="no_inst" class="no_inst_wrapper clearFix hide" style="display:none;">
+    <div class="no_inst_content clearFix">
+      <div class="no_inst_message">This class has no instructor!</div>
+      <div id="invite_inst" class="no_inst_action" onclick="PA.trackEvent(true, 'click-inviteInstructors', 'profless_class', null);">Invite Instructor(s)</div>
+    </div>
+    <div class="no_inst_action" style="float: right; margin-top: -25px; margin-right: 5px;" onclick="PT.dropClass(currentNetworkId)">Drop Class</div>
+  </div>
+
+
+    <script>
+  function submitenter(myfield,e) {
+    var keycode;
+    if (window.event) keycode = window.event.keyCode;
+    else if (e) keycode = e.which;
+    else return true;
+
+    if (keycode == 13) {
+      myfield.form.submit();
+      return false;
+    } else return true;
+  }
+</script>
+
+<div id="LoginPanel" class="slidingPanel" style="display: none;">
+  <h2>Log in</h2>
+  <form id="login-form" method="post" 
+  
+  action="https://piazza.com/slider_login?from=/alexu.edu.eg/spring2013/cc485/home">
+  
+    
+    <div id="caps_lock_error" class="error message" style="display: none;">Caps lock is turned on!</div>
+    <div class="formField">
+      <label for="email_field">Email</label>
+      <input tabindex="1" name="email" type="text"  id="email_field" value="yasin.ghannam@gmail.com" />
+    </div>
+    <div class="formField">
+      <label for="password_field">Password</label>
+      <input tabindex="2" name="password" type="password" id="password_field" onKeyPress="return submitenter(this,event)"/>
+    </div>
+    <div class="formField">
+      <input tabindex="3" id="remember" name="remember" type="checkbox" value="" class="checkbox"> <label class="bottomLine" for="remember" style="display:inline-block;">Keep me logged in</label>
+      <br/>
+      <a href="/forgot_password.html" class="bottomLine" style="font-size:12px;">Forgot your password?</a>
+    </div>
+    <div class="buttonBar">
+      <a tabindex="4" href="#" class="primary button" rel="submit" onKeyPress="return submitenter(this,event);">
+        <span>Log in</span>
+      </a>
+      <a tabindex="5" href="#" class="loginCancel" rel="cancel">
+        <span>Cancel</span>
+      </a>
+    </div>
+  </form>
+</div>
+
+
+    <div id="PageWrapper">
+      <div id="Page">
+        
+        <div id="header"  >
+          <div class="header_content">
+            <div class="container">
+  <p>Alexandria University - Spring 2013</p>
+
+  <h1>CC 485: Computer Graphics</h1>
+
+  
+
+  <div id="syllabus_container"></div>
+  <div class="public_visibility_message_wrapper req_inst">
+    <div class="public_visibility_logo"></div>
+    <span id="public_visibility_message" class="alert hide">To change visibility settings, click on your <b>Manage Class</b> tab.</span>
+  </div>
+</div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="tabbable">
+
+            <ul class="nav nav-tabs">
+              <li class="active">
+              <a id="tab_course_information" href="#course_information" data-toggle="tab">
+                Course Information
+              </a>
+              </li>
+              
+              <li>
+              <a id="tab_staff" href="#staff" data-toggle="tab">
+                Staff
+              </a>
+              </li>
+              
+              <li>
+              <a id="tab_resources" href="#resources" data-toggle="tab">
+                Resources
+              </a>
+              </li>
+              
+            </ul>
+            <div class="tab-content">
+              <div id="course_information" class="active tab-pane span12">
+                <div class="row course_information">
+                  <div class="span6">
+
+                    <div class="section_description row section">
+                      <div class="header span6">
+                        <div class="req_inst">
+                          <button class="btn_cancel btn right edit" style="margin-left: 5px">
+                            <i class="icon-remove-circle"></i>&nbsp;&nbsp;Cancel
+                          </button>
+                          <button class="btn_edit btn right view">
+                            <i class="icon-pencil"></i>&nbsp;&nbsp;Edit
+                          </button>
+                          <button class="btn_save btn btn-primary right edit">
+                            <i class="icon-ok-circle icon-white"></i>&nbsp;&nbsp;Save
+                          </button>
+                          <a href="#" class="desc_cancel"></a>
+                        </div>
+                        <h2>Description</h2>
+                      </div>
+                      <p><noscript></noscript></p>
+
+                      <div class="span6">
+                        <div class="description">
+                          <div class="view">
+                          </div>
+                          <div class="edit">
+                            <textarea></textarea>
+                          </div>
+                        </div>
+
+                        <div class="tutorial hide alert view req_inst">
+                          <h4 class="alert-heading">
+                            Add a Course Description
+                          </h4>
+                          Click the Edit button to add a
+                          course description.
+                        </div>
+
+                        <div class="tutorial hide alert alert-info req_student">
+                          <h4 class="alert-heading">
+                            No description, yet.
+                            Stay tuned!
+                          </h4>
+                        </div>
+                      </div>
+
+
+                    </div>
+
+                    <div class="section_general_information row section">
+                      <div class="header span6">
+                        <div class="req_inst">
+                          <button class="btn_cancel btn right edit" style="margin-left: 5px">
+                            <i class="icon-remove-circle"></i>&nbsp;&nbsp;Cancel
+                          </button>
+                          <button class="btn_edit btn right view">
+                            <i class="icon-pencil"></i>&nbsp;&nbsp;Edit
+                          </button>
+                          <button class="btn_save btn btn-primary right edit">
+                            <i class="icon-ok-circle icon-white"></i>&nbsp;&nbsp;Save
+                          </button>
+                          <a href="#" class="gi_cancel"></a>
+                        </div>
+                        <h2>General Information</h2>
+                      </div>
+
+                      <div class="span6">
+                        <table>
+                          <tbody>
+                            <tr valign="top" class="add_row">
+                              <td class="span3">
+                                <span class="edit">
+                                  <input class="span2 input-label" placeholder="Label, e.g. Lecture Location or Course Mailing List">
+                                </span>
+                              </td>
+                              <td class="span3">
+                                <div class="edit">
+                                  <textarea class="span3 input-text" placeholder="Details go here"></textarea>
+                                </div>
+                              </td>
+                              <td class="span2"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <div class="tutorial hide alert view req_inst">
+                          <h4 class="alert-heading">
+                            Edit Course Information
+                          </h4>
+                          <p>Click the Edit button to add course information.</p>
+                          <p>Some Ideas:</p>
+                          <ul>
+                            <li>Lecture Time</li>
+                            <li>Lecture Location</li>
+                          </ul>
+                        </div>
+
+                        <div class="tutorial hide alert alert-info req_student">
+                          <h4 class="alert-heading">
+                            No information, yet.
+                            Stay tuned!
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="span6">
+                    <div class="section_announcements row section">
+                      <div class="header span6">
+                        <div class="req_inst">
+                          <button class="btn_add btn right">
+                            <i class="icon-plus"></i>&nbsp;&nbsp;Add
+                          </button>
+                        </div>
+                        <h2>Announcements</h2>
+                        <a href="#" class="show_announcements all hidden">show all</a>
+                        <a href="#" class="show_announcements recent hide hidden">show recent</a>
+                      </div>
+                      <div class="span6">
+                        <div id="public-announcements-alert" class="hide alert alert-info">
+                          <h4 class="alert-heading">
+                            Announcements are not public for this course.
+                          </h4>
+                        </div>
+                        <div class="announcements"></div>
+                        <div class="tutorial hide alert view req_inst">
+                          <h4 class="alert-heading">
+                            Add an Announcement
+                          </h4>
+                          Click the Add
+                          button to add an announcement.
+                        </div>
+
+                        <div class="tutorial hide alert alert-info req_student">
+                          <h4 class="alert-heading">
+                            No announcements, yet.
+                            Stay tuned!
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="staff">
+                <div class="req_inst">
+                  <button class="btn_edit view btn right">
+                    <i class="icon-edit"></i>&nbsp;&nbsp;Edit
+                  </button>
+                  <button class="btn_save edit btn right">
+                    <i class="icon-check"></i>&nbsp;&nbsp;Save
+                  </button>
+                </div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th class="span3"></th>
+                      <th class="span3">Name</th>
+                      <th class="span3">&nbsp;</th>
+                      <th class="span3">Office Hours</th>
+                    </tr>
+                  </thead>
+                  <tbody class="instructors">
+                    
+                      <tr>
+                        <td></td>
+                        <td>Mohamed Elsayed Hussein</td>
+                        <td></td>
+                        <td>
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <td></td>
+                        <td>Ahmed Kotb</td>
+                        <td></td>
+                        <td>
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <td></td>
+                        <td>Mohamed Sayed El-Tawab</td>
+                        <td></td>
+                        <td>
+                          
+                        </td>
+                      </tr>
+                    
+                  </tbody>
+                </table>
+
+                <div class="tutorial hide alert alert-info">
+                  <h4 class="alert-heading">
+                    No instructors have been added to this course, yet.
+                    Stay tuned!
+                  </h4>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="resources">
+                <div style="padding: 2px 8px" class="clearFix">
+                  <div class="finish_edit_resource_sections_alert alert req_inst hide" style="float: left; margin-bottom: 0px; margin-left: -8px; width: 720px; text-align: center;"><b>Your changes were successfully saved!</b></div>
+                  <div class="edit_resource_sections_alert alert req_inst hide" style="float: left; margin-bottom: 0px; margin-left: -8px;">Want to associate dates with your resources? Make sure to enter a <b>Date Title</b>, like "Lecture Date."</div>
+                  <button id="edit_resource_sections" class="btn_edit_sections btn btn-primary right btn-small req_inst" style="margin-bottom:10px">
+                    <i class="icon-pencil icon-white"></i> Edit Resource Sections
+                  </button>
+                  <button id="save_resource_sections" class="btn_save_sections hide btn btn-primary right btn-small" style="margin-bottom:10px">
+                    <i class="icon-check icon-white"></i>&nbsp;&nbsp;Save Changes
+                  </button>
+                </div>
+                <div class="resource_options_section hide">
+                  <table class="options_table table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Section Title</th>
+                        <th style="width:80px; text-align:center;">Add a Date?</th>
+                        <th style="width:210px;">Date Title</th>
+                        <th style="width:75px;">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+
+                  <div style="margin-bottom: 100px;">
+                    <div class="edit_resource_sections_alert alert req_inst hide" style="float: left; margin-bottom: 0px;">Need to add a new section? Enter a <b>Section Title</b>. You can configure the section before saving it.</div>
+                    <div style="float: right; margin-bottom: 10px; margin-top: 5px;">
+                      <input class="section_name span2 input-label" type="text" placeholder="Add Section Title" style="margin-bottom:0px; width: 200px;"/>
+                      <button class="btn_add_section btn btn-small btn-primary">Add Section</button>
+                    </div>
+                  </div>
+                </div>
+                <div id="resource_sections_content">
+                </div>
+              </div>
+              <div id="class_sections" class="tab-pane">
+                <p class="show_for_students">Groups allow instructors and students to post to a subset of students in the class, suitable for when your class consists of multiple sections or project groups. Join a group to read and ask questions for that particular group.</p>
+                <ul class="class_section_list">
+
+                </ul>
+                
+                <br/>
+                <p>Instructor has not allowed students to join groups themselves. Please contact your instructor to join a group.</p>
+                
+              </div>
+
+<!-- project teams -->
+
+              <div class="tab-pane" id="teams">
+                <a href="">Check out project teams in the dashboard!</a>
+              </div>
+
+            </div>
+          </div>
+
+          <hr/>
+          <footer><p>Copyright &copy; 2013 <a href="/signup">Piazza Technologies</a>, Inc. All Rights Reserved.</p></footer>
+
+        </div>
+      </div>
+    </div>
+
+<!--modal windows-->
+    <!--Deleting announcements from the homepage-->
+    <div class="modal hide" id="deleteAnnouncement" style="width: 670px; margin-left:-335px; margin-top: -90px;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3>Are you sure you want to delete this annoucement?</h3>
+      </div>
+      <div class="modal-body">
+        <p>You have the option of deleting this announcement from just the course homepage or deleting this announcement from the course homepage and Q&A feed. What would you like to do?</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Don't delete</a>
+        <a href="#" class="homepage btn btn-primary">Delete from course homepage</a>
+        <a href="#" class="dashboard btn btn-primary">Delete from course homepage and Q&A feed</a>
+      </div>
+    </div>
+    <!--Cancelling after modifying content for description-->
+    <div class="modal hide cancel_changes" id="desc_cancelChanges" style="width: 440px; margin-left:-220px; margin-top: -80px;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3>Are you sure you want to cancel?</h3>
+      </div>
+      <div class="modal-body">
+        <p>You'll lose everything you typed, plus all the time it took to type it...</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">No, take me back!</a>
+        <a href="#" class="btn btn-primary">Yes, delete my edit</a>
+      </div>
+    </div>
+    <!--Cancelling after modifying content for course information-->
+    <div class="modal hide cancel_changes" id="gi_cancelChanges" style="width: 440px; margin-left:-220px; margin-top: -80px;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3>Are you sure you want to cancel?</h3>
+      </div>
+      <div class="modal-body">
+        <p>You'll lose everything you typed, plus all the time it took to type it...</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">No, take me back!</a>
+        <a href="#" class="btn btn-primary">Yes, delete my edit</a>
+      </div>
+    </div>
+
+    <!--Adding links-->
+
+    <script id="tpl_alert" type="text/html">
+      <div class="alert">
+  <a class="close" data-dismiss="alert">&#215;</a>
+  <strong>{{title}}</strong>: {{text}}
+</div>
+    </script>
+    <script id="tpl_network_dropdown" type="text/html">
+      <div id="current-class-container">
+  <div id="classes-content-wrapper" class="clearFix">
+    <div id="current-class">
+      <span style="cursor:pointer;">
+        <span id="current-class-title"
+              class="course-number">{{course_number}}</span>
+        <span class="course-number-arrow">&#9662;</span>
+      </span>
+    </div>
+
+
+    <div class="dropdownWrapper leftBarItem" id="myClassesWrapper">
+      <div class="dropdownToggler clearFix active" id="myClassesToggler"
+           style="position:absolute; top:0px;right:-5px;">
+      </div>
+      <div class="dropdownMenu" id="myClassesMenu"
+           style="overflow-x: auto; overflow-y: auto; display: none; ">
+        <ul id="myClassesMenuItems" class="ui-sortable" style="">
+
+          <a href="/signup/piazza.com">
+            <li class="add-new-class">+&nbsp;Add Another Class</li>
+          </a>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+    </script>
+    <script id="tpl_network_dropdown_item" type="text/html">
+      <li class="classDropdownItem sortable">
+  <div class="main">
+    <strong>{{course_number}}</strong>
+    {{^is_active}}(inactive) {{/is_active}}
+    <span style="color:#AAA">[{{term}}{{^term}}other{{/term}}]</span>:
+    {{name}}
+  </div>
+</li>
+    </script>
+    <script id="tpl_syllabus" type="text/html">
+      <div id="syllabus">
+  <div class="btn-group" id="syllabus_stud">
+    <a class="btn_download btn btn-large"
+      href="/class_profile/syllabus/{{id}}">
+      Syllabus&nbsp;&nbsp;<i class="icon-download-alt"></i>
+    </a>
+  </div>
+  
+  <div class="btn-group" id="syllabus_prof">
+      <a class="btn_download btn btn-large" target="_blank"
+        href="/class_profile/syllabus/{{id}}">
+        Syllabus&nbsp;&nbsp;<i class="icon-download-alt"></i>
+      </a>
+      <button type="button" id="syllabus_edit" class="view btn btn-large">
+        <i class="ajax_loader"></i>
+        <i class="icon-pencil"></i>
+      </button>
+    <button type="button" id="syllabus_delete" class="view btn btn-large"
+                data-original-title="Are you sure?"
+                data-content="
+      <button class='yes btn btn-primary'>Yes</button>
+      <button class='no btn'>No</button>">
+      <i class="icon-trash"></i>
+    </button>
+  </div>
+  <div>
+    <a class="btn_add btn btn-large" id="syllabus_add">
+      <i class="icon-plus"></i>&nbsp;&nbsp;Add Syllabus
+    </a>
+  </div>
+</div>
+
+    </script>
+    <script id="tpl_general_information" type="text/html">
+      <tr class="clearFix" valign="top">
+
+  <td class="span3 header_text">
+    <span class="view label">{{label}}</span>
+    <span class="edit">
+      <input class="span2 input-label" value="{{label}}" placeholder="Label">
+    </span>
+  </td>
+
+  <td class="span3 body_text">
+    <div class="view">
+      {{{text_as_html}}}
+    </div>
+    <div class="edit">
+      <textarea class="span3 input-text" placeholder="Information goes here">{{text}}</textarea>
+    </div>
+  </td>
+
+  <td class="edit general_information_remove">
+    <span class="btn_link btn_remove_row">
+      <i class="icon-remove"></i> <a>Remove Row</a>
+    </span>
+    <!--<button class=" btn btn-small">-->
+      <!--<i class="icon-remove"></i>Remove-->
+    <!--</button>-->
+  </td>
+
+</tr>
+
+    </script>
+    <script id="tpl_class_section" type="text/html">
+      <li class="section_info">
+  <span class="section_title">{{name}}</span>
+  {{#my_section}}<span class="section_meta">( you are in this group )</span>{{/my_section}}
+  {{#can_enroll}}
+    {{#not_my_section}}<a class="section_link join" href="#">Join</a>{{/not_my_section}}
+    {{#my_section}}<a class="section_link remove" href="#">Drop Group</a>{{/my_section}}
+  {{/can_enroll}}
+</li>
+    </script>
+    <script id="tpl_announcement" type="text/html">
+      <div id={{id}} nr={{nr}} class="announcement well">
+  <div class="announcement_header clearfix">
+	  <div class="announcement_actions req_inst">
+	  	<button class="btn_cancel btn right view" style="margin-left: 5px">
+			<i class="icon-trash"></i>&nbsp;&nbsp;Delete
+		</button>
+		<button class="btn_edit btn right view">
+	    	<i class="icon-pencil"></i>&nbsp;&nbsp;Edit
+	    </button>
+	  </div>
+	  <div class="announcement_meta">	
+	  	<h3>{{title}}</h3>
+	  	<em>{{client_time}}</em>
+	  </div>
+  </div>
+
+  <p class="announcement_text">{{{text}}}</p>
+  <a href="#" class="view_more">View More</a>
+  <a href="#" class="view_less">View Less</a>
+  <span class="dot">&middot;</span>
+  <a href="{{url}}" target="_blank">View on Piazza</a>
+</div>
+
+    </script>
+    <script id="tpl_instructor" type="text/html">
+      <tr>
+  <td>{{{img}}}</td>
+  <td>{{name}}</td>
+  <td>
+  </td>
+  <td>
+    <table class="office_hours table table-condensed table-bordered">
+      <tr>
+        <td><strong>When?</strong></td>
+        <td class="view">{{office_hours.time}}</td>
+        <td class="edit"><input class="time" type="text" value=""></td>
+      </tr>
+      <tr>
+        <td><strong>Where?</strong></td>
+        <td class="view">{{office_hours.location}}</td>
+        <td class="edit"><input class="location" type="text" value=""></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+    </script>
+    <script id="tpl_resource_section" type="text/html">
+      <div class="resources_section" id="resource_section_{{id}}">
+  <div class="title_wrapper">
+    <h2>{{title}}</h2>
+    <div class="number_of_resources_wrapper">
+      ( <span id="number_of_resources_shown"></span> out of <span id="number_of_total_resources"></span> resources displayed ) 
+    </div>
+  </div>
+  <table class="table table-striped tablesorter table-bordered
+    {{^has_date}}not_has_date{{/has_date}}">
+    <thead>
+    <tr>
+      {{#headers}}
+      <th class="{{class}}">
+        {{text}}
+      </th>
+      {{/headers}}
+      
+
+    </tr>
+    </thead>
+    <tbody id="resource_table_body">
+    </tbody>
+  </table>
+  
+
+  
+  <div class="tutorial hide alert alert-info">
+    <h4 class="alert-heading">
+      Nothing has been added to the {{title}} section, yet.
+      Stay tuned!
+    </h4>
+  </div>
+  
+
+  <div id="public-resources-alert" class="hide alert alert-info">
+    <h4 class="alert-heading">
+      This resource section is not public for this course.
+    </h4>
+  </div>
+
+
+  <div class="section_view_links_wrapper">
+    <a href="#" id="show_more_resources" class="view_resources_link">Show all resources</a>
+    <a href="#" id="show_less_resources" class="view_resources_link">Show fewer resources</a>
+  </div>
+
+  
+
+  <div class="modal hide add_link_modal" id="add_link" style="width: 480px; margin-left:-240px; margin-top: -80px;">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3>Add a link</h3>
+    </div>
+    <div class="modal-body clearfix">
+      <div class="input_wrapper">
+        <label>Title</label>
+        <input type="text" class="link_title" placeholder="Please select a title for your link" />
+      </div>
+      <div class="input_wrapper">
+        <label>Link</label>
+        <input type="text" class="link_address" value="http://" onclick="select()" />
+      </div>
+
+      <div class="error_message" style="color: red; text-align: center; font-weight: 500; margin-top: 5px;">
+        <p class="error_text" style="display:none">An error occurred</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button data-dismiss="modal"
+        class="btn" style="margin-right: 5px;">Cancel
+      </button>
+      <button
+        class="btn_confirm_add_link btn btn-primary">Post Link
+      </button>
+    </div>
+  </div>
+</div>
+
+    </script>
+    <script id="tpl_resource" type="text/html">
+      <tr class="resource resource_row ui-state-default">
+  <td id="{{id}}">
+    <i class="ajax_loader"></i>
+    <div class="view title"><a href="#" class="resource_title">{{title}}</a></div>
+    <div class="announce_message req_inst">Click "Post a note" anytime to create a note related to this resource. (you can review its content before posting)</div>
+    <div class="edit" style="float: left;"><input class="title" type="text"/></div>
+    <div class="req_inst reorder_resource hide" id="resource_drag_field_{{id}}"></div>
+    <div class="req_inst reorder_resource_disabled hide"></div>
+  </td>
+
+  <td class="resource_date_col hide_on_drag {{^date}}not_has_date{{/date}}">
+    {{^date}}
+    <div class="req_inst placeholder_date view">click to edit date</div>
+    {{/date}}
+    <div class="view" style="text-align: center; line-height: 2">{{date}}</div>
+    <div class="edit"><input class="date" type="text" /></div>
+  </td>
+  
+  <td class="req_inst resource_action_col hide_on_drag">
+    <div class="view btn-group">
+      <button class="btn_edit btn btn-small"
+              data-original-title="Edit"
+              rel="tooltip">
+        <i class="icon-pencil"></i>&nbsp;&nbsp;Edit
+      </button>
+      <button class="btn_announce btn btn-small"
+              data-original-title="Post a note"
+              rel="tooltip">
+        <i class="icon-list-alt"></i>&nbsp;&nbsp;Post a note
+      </button>
+      <button class="btn_delete btn btn-small"
+              data-original-title="Are you sure?"
+              data-content="
+                <button class='yes btn btn-primary'>Yes</button>
+                <button class='no btn'>No</button>">
+        <i class="icon-trash"></i>&nbsp;&nbsp;Delete
+      </button>
+    </div>
+
+    <button class="edit btn_save btn btn-small">
+      <i class="icon-ok-circle"></i> Done
+    </button>
+
+  </td>
+</tr>
+    </script>
+    <script id="tpl_resource_section_options" type="text/html">
+      <tr class="ui-state-default" data-cid="{{title}}">
+	<td style="">
+    <div class="view title" style="vertical-align:bottom; margin: 5px">{{title}}
+      <div  class="req_inst reorder_resource" 
+            id="resource_drag_field_{{id}}">
+      </div>
+    </div>
+  </td>
+
+	<td style="text-align: center; vertical-align: middle;">
+    <input  class="has_date" 
+            style="margin-left:5px; margin-top:5px;" 
+            type="checkbox" 
+            {{#has_date}}checked{{/has_date}} />
+  </td>
+ 
+  <td><input  class="date_title" 
+              style="margin-bottom: 0px" 
+              type="text" 
+              {{#has_date}}value="{{date_title}}"{{/has_date}} />
+  </td>
+	
+  <td style="text-align: center;">
+    <button class="btn_delete btn btn-small"
+
+              data-original-title="Are you sure you want to delete this section?"
+              data-content="
+        <button class='yes btn btn-primary'>Yes</button>
+        <button class='no btn'>No</button>">
+        <i class="icon-trash"></i>&nbsp;&nbsp;Delete
+    </button>
+  </td>
+</tr>
+    </script>
+
+    <script src="/javascripts/cache/class_profile.js?1365621152" type="text/javascript"></script>
+
+    <script type="text/javascript">/* Course Homepage JS controller*/
+
+var ClassProfile = Spine.Controller.sub({
+  elements: {
+    "#PageTopbar": "topbar",
+    "#Page": "page",
+    "#PageWrapper": "page_wrapper",
+    "#PageAlert": "page_alert",
+    "#header": "header",
+    "#syllabus_container": "syllabus",
+    "#course_information": "home",
+    "#staff": "staff",
+    "#resources": "resources",
+    '#class_sections': "class_sections"
+  },
+  init: function() {
+    this.set_network();
+    this.route_to_tab();
+    $('input, textarea').placeholder();
+    new AlertController({
+      el: this.page_alert
+    });
+  },
+  set_network: function() {
+    this.network  = {"total_content_prof":79,"syllabus":"","user_count":97,"name":"Computer Graphics","creator_name":"","topics":["project","exam","logistics","other","midterm2","midterm1","lectures","labs","tutorials"],"my_name":"CC 485: Computer Graphics","profs":[{"name":"Mohamed Elsayed Hussein","photo":null,"facebook_id":null,"role":"Professor","admin":true,"us":false,"id":"gtmta0m2a4e4hi"},{"name":"Ahmed Kotb","photo":null,"facebook_id":null,"role":"TA","admin":true,"us":false,"id":"gzbnjjjeozo5y8"},{"name":"Mohamed Sayed El-Tawab","photo":"1361550520_35.png","facebook_id":null,"role":"TA","admin":true,"us":false,"id":"gz1pzo1si59eg"}],"special_tags":[{"name":"assignment","nr":3}],"office_hours":{},"status":"active","department":"","term":"Spring 2013","enrollment":94,"private_posts":"yes","folders":["assignment1","assignment2","assignment3","project","exam","logistics","other","midterm2","midterm1","lectures","labs","tutorials"],"school_emails":"alexu.edu.eg","school_short":"alexandria_university","short_number":"cc485","course_number":"CC 485","start_date":"2013-02-16T00:00:00Z","end_date":null,"type":"open","total_content_stud":76,"school":"Alexandria University","course_description":"","config":{"public_visibility_settings":{"announcements":true,"resource_sections":{"homework_solutions":false,"problem_sets_&_concepts_assignment":false,"labs":false,"lecture_notes":true,"homework":true,"general":true}},"tips_tricks_nr":2,"get_familiar_nr":3,"disable_syntax":false,"disable_folders":false,"onboard":{"add_inst":1,"add_stud":1},"introduce_piazza_nr":4,"seen_message":["nostart-existing-7d","first_day","enroll_inst","enroll_students","tips_tricks","welcomePostSection"],"resource_sections":[{"name":"homework","visibility":true,"title":"Homework","has_date":true,"ordering":[],"date_title":"Due Date","headers":[{"text":"Homework","class":"title"},{"text":"Due Date","class":"date"}]},{"name":"homework_solutions","visibility":false,"title":"Homework Solutions","has_date":false,"ordering":[],"date_title":"","headers":[{"text":"Homework Solutions","class":"title"}]},{"name":"lecture_notes","visibility":true,"title":"Lecture Notes","has_date":true,"ordering":["hg4wov64jqi4eh","hfxpergq3dh7bv","hff40f5tupi7ea","hel4xkzckdk7jy","hebc9s4ib2247y","he0kb34wnb13jp","hdmmjoxwm3c7a7","hdmmj67f151750"],"date_title":"Lecture Date","headers":[{"text":"Lecture Notes","class":"title"},{"text":"Lecture Date","class":"date"}]},{"name":"general","visibility":true,"title":"General Resources","has_date":false,"ordering":[],"date_title":"","headers":[{"text":"General Resources","class":"title"}]},{"name":"problem_sets_&_concepts_assignment","visibility":false,"title":"Problem Sets & Concepts Assignment","has_date":true,"ordering":[],"date_title":"Due Date","headers":[{"text":"Problem Sets & Concepts Assignment","class":"title"},{"text":"Due Date","class":"date"}]},{"name":"labs","visibility":false,"title":"Labs","has_date":true,"ordering":["hg1d6wkwqoobx","hg1d6u7wlrcbg","hfsqa2k6a7c64m","hfsqa69cg5j6ze","hfji2apgr8b5zp","hfh14r9roa9wo","hf5urc8r459677","hf5uoq4asz5al","hemjvo9wf43591","hemjvgv19yv58c","heb9vypiubx237","hdydrnyghj76c4","hdydqfztpft3l9","hdot94we6vl7k1","hdot7ox812079p","heb9w08h8m523g"],"date_title":"Due Date","headers":[{"text":"Labs","class":"title"},{"text":"Due Date","class":"date"}]},{"name":"exams_&_solutions","visibility":true,"title":"Exams & Solutions","has_date":true,"ordering":[],"date_title":"Date","headers":[{"text":"Exams & Solutions","class":"title"},{"text":"Date","class":"date"}]}],"reg_user_count":94},"school_ext":"alexu.edu.eg","anonymity":"full","id":"hd0k86kr39s705","school_id":"grqjtic8ung","prof_hash":{"gz1pzo1si59eg":1,"gzbnjjjeozo5y8":1,"gtmta0m2a4e4hi":1},"general_information":[]};
+    //this.url      = null;
+    this.nid      = this.network.id;
+
+    this.user_type            = "stud";
+    this.resource_sections    = [{"name":"homework","visibility":true,"title":"Homework","has_date":true,"ordering":[],"date_title":"Due Date","headers":[{"text":"Homework","class":"title"},{"text":"Due Date","class":"date"}]},{"name":"homework_solutions","visibility":false,"title":"Homework Solutions","has_date":false,"ordering":[],"date_title":"","headers":[{"text":"Homework Solutions","class":"title"}]},{"name":"lecture_notes","visibility":true,"title":"Lecture Notes","has_date":true,"ordering":["hg4wov64jqi4eh","hfxpergq3dh7bv","hff40f5tupi7ea","hel4xkzckdk7jy","hebc9s4ib2247y","he0kb34wnb13jp","hdmmjoxwm3c7a7","hdmmj67f151750"],"date_title":"Lecture Date","headers":[{"text":"Lecture Notes","class":"title"},{"text":"Lecture Date","class":"date"}]},{"name":"general","visibility":true,"title":"General Resources","has_date":false,"ordering":[],"date_title":"","headers":[{"text":"General Resources","class":"title"}]},{"name":"problem_sets_&_concepts_assignment","visibility":false,"title":"Problem Sets & Concepts Assignment","has_date":true,"ordering":[],"date_title":"Due Date","headers":[{"text":"Problem Sets & Concepts Assignment","class":"title"},{"text":"Due Date","class":"date"}]},{"name":"labs","visibility":false,"title":"Labs","has_date":true,"ordering":["hg1d6wkwqoobx","hg1d6u7wlrcbg","hfsqa2k6a7c64m","hfsqa69cg5j6ze","hfji2apgr8b5zp","hfh14r9roa9wo","hf5urc8r459677","hf5uoq4asz5al","hemjvo9wf43591","hemjvgv19yv58c","heb9vypiubx237","hdydrnyghj76c4","hdydqfztpft3l9","hdot94we6vl7k1","hdot7ox812079p","heb9w08h8m523g"],"date_title":"Due Date","headers":[{"text":"Labs","class":"title"},{"text":"Due Date","class":"date"}]},{"name":"exams_&_solutions","visibility":true,"title":"Exams & Solutions","has_date":true,"ordering":[],"date_title":"Date","headers":[{"text":"Exams & Solutions","class":"title"},{"text":"Date","class":"date"}]}];
+    this.visibility_settings  = {"announcements":true,"resource_sections":{"homework_solutions":false,"problem_sets_&_concepts_assignment":false,"labs":false,"lecture_notes":true,"homework":true,"general":true}};
+    this.page_section         = "resources";
+    this.staff_info           = [{"name":"Mohamed Elsayed Hussein","photo":null,"facebook_id":null,"role":"Professor","admin":true,"us":false,"id":"gtmta0m2a4e4hi"},{"name":"Ahmed Kotb","photo":null,"facebook_id":null,"role":"TA","admin":true,"us":false,"id":"gzbnjjjeozo5y8"},{"name":"Mohamed Sayed El-Tawab","photo":"1361550520_35.png","facebook_id":null,"role":"TA","admin":true,"us":false,"id":"gz1pzo1si59eg"}];
+    this.resource_data        = [{"created":"2013-02-22T16:42:37Z","subject":"pset00warmup.pdf","content":"","config":{"section":"problem_sets_&_concepts_assignment","date":"","resource_type":"file"},"id":"hdhkiuygfdg5vr"},{"created":"2013-02-26T05:37:41Z","subject":"SSPS13CG01Intro.pdf","content":"","config":{"section":"lecture_notes","date":"Feb 18, 2013","resource_type":"file"},"id":"hdmmj67f151750"},{"created":"2013-02-26T05:38:06Z","subject":"SSPS13CG02OpenGL0.pdf","content":"","config":{"section":"lecture_notes","date":"Feb 25, 2013","resource_type":"file"},"id":"hdmmjoxwm3c7a7"},{"created":"2013-02-27T18:20:15Z","subject":"Lab0.pdf","content":"Lab0.pdf","config":{"section":"labs","date":""},"id":"hdot7ox812079p"},{"created":"2013-02-27T18:21:23Z","subject":"Lab0_helloworld2.zip","content":"Lab0_helloworld2.zip","config":{"section":"labs","date":""},"id":"hdot94we6vl7k1"},{"created":"2013-03-06T11:04:38Z","subject":"lab1.pdf","content":"","config":{"section":"labs","date":"","resource_type":"file"},"id":"hdydqfztpft3l9"},{"created":"2013-03-06T11:05:35Z","subject":"lab1.zip","content":"","config":{"section":"labs","date":"","resource_type":"file"},"id":"hdydrnyghj76c4"},{"created":"2013-03-07T23:44:11Z","subject":"SSPS13CG03OpenGL1.pdf","content":"","config":{"section":"lecture_notes","date":"Mar 4, 2013","resource_type":"file"},"id":"he0kb34wnb13jp"},{"created":"2013-03-15T11:37:58Z","subject":"lab2.pdf","content":"lab2.pdf","config":{"section":"labs","date":""},"id":"heb9vypiubx237"},{"created":"2013-03-15T11:38:00Z","subject":"lab2.zip","content":"lab2.zip","config":{"section":"labs","date":""},"id":"heb9w08h8m523g"},{"created":"2013-03-15T12:44:42Z","subject":"SSPS13CG04OpenGL2.pdf","content":"","config":{"section":"lecture_notes","date":"Mar 11, 2013","resource_type":"file"},"id":"hebc9s4ib2247y"},{"created":"2013-03-22T09:16:57Z","subject":"SSPS13CG05Geometry.pdf","content":"","config":{"section":"lecture_notes","date":"Mar 18, 2013","resource_type":"file"},"id":"hel4xkzckdk7jy"},{"created":"2013-03-23T09:02:59Z","subject":"lab3.pdf","content":"lab3.pdf","config":{"section":"labs","date":""},"id":"hemjvgv19yv58c"},{"created":"2013-03-23T09:03:08Z","subject":"lab3.zip","content":"lab3.zip","config":{"section":"labs","date":""},"id":"hemjvo9wf43591"},{"created":"2013-04-05T21:13:17Z","subject":"lab4.pdf","content":"lab4.pdf","config":{"section":"labs","date":""},"id":"hf5uoq4asz5al"},{"created":"2013-04-05T21:15:19Z","subject":"lab4.zip","content":"","config":{"section":"labs","date":"","resource_type":"file"},"id":"hf5urc8r459677"},{"created":"2013-04-10T13:43:51Z","subject":"SSPS13CGMidterm1.pdf","content":"","config":{"section":"exams_&_solutions","date":"Apr 1, 2013","resource_type":"file"},"id":"hfcju03klj14x2"},{"created":"2013-04-10T13:44:22Z","subject":"SSPS13CGMidterm1sol.xlsx","content":"","config":{"section":"exams_&_solutions","date":"Apr 1, 2013","resource_type":"file"},"id":"hfcjuo557te4a5"},{"created":"2013-04-12T08:44:15Z","subject":"SSPS13CG0607RepTrans.pdf","content":"","config":{"section":"lecture_notes","date":"Apr 8, 2013","resource_type":"file"},"id":"hff40f5tupi7ea"},{"created":"2013-04-12T22:59:19Z","subject":"pset1.pdf","content":"pset1.pdf","config":{"section":"problem_sets_&_concepts_assignment","date":""},"id":"hffyk1hsvlu2yr"},{"created":"2013-04-12T23:00:38Z","subject":"Intro_Tutorial.pdf","content":"Intro_Tutorial.pdf","config":{"section":"problem_sets_&_concepts_assignment","date":""},"id":"hffylqnzosg4s6"},{"created":"2013-04-12T23:03:29Z","subject":"Transformation_Tutorial.pdf","content":"","config":{"section":"problem_sets_&_concepts_assignment","date":"","resource_type":"file"},"id":"hffypek4tjq5kd"},{"created":"2013-04-13T16:59:11Z","subject":"assignment1.pdf","content":"","config":{"section":"labs","date":"Apr 27, 2013","resource_type":"file"},"id":"hfh14r9roa9wo"},{"created":"2013-04-15T10:28:42Z","subject":"traffic_flow.txt","content":"traffic_flow.txt","config":{"section":"labs","date":""},"id":"hfji2apgr8b5zp"},{"created":"2013-04-21T21:28:37Z","subject":"lab5.pdf","content":"lab5.pdf","config":{"section":"labs","date":""},"id":"hfsqa2k6a7c64m"},{"created":"2013-04-21T21:28:42Z","subject":"lab5.zip","content":"lab5.zip","config":{"section":"labs","date":""},"id":"hfsqa69cg5j6ze"},{"created":"2013-04-25T09:03:07Z","subject":"SSPS13CG0809Viewing.pdf","content":"","config":{"section":"lecture_notes","date":"Apr 18, 2013","resource_type":"file"},"id":"hfxpergq3dh7bv"},{"created":"2013-04-27T22:32:07Z","subject":"lab6.pdf","content":"lab6.pdf","config":{"section":"labs","date":""},"id":"hg1d6u7wlrcbg"},{"created":"2013-04-27T22:32:10Z","subject":"lab6.zip","content":"lab6.zip","config":{"section":"labs","date":""},"id":"hg1d6wkwqoobx"},{"created":"2013-04-29T00:24:34Z","subject":"pset2.pdf","content":"pset2.pdf","config":{"section":"problem_sets_&_concepts_assignment","date":""},"id":"hg2wnb708q51wq"},{"created":"2013-04-29T22:43:56Z","subject":"Transformation_Tutorial_Part2.pdf","content":"Transformation_Tutorial_Part2.pdf","config":{"section":"problem_sets_&_concepts_assignment","date":""},"id":"hg48hqi6dfk2sq"},{"created":"2013-04-30T10:01:19Z","subject":"SSPS13CG10Shading.pdf","content":"","config":{"section":"lecture_notes","date":"Apr 29, 2013","resource_type":"file"},"id":"hg4wov64jqi4eh"}];
+    this.announcement_data    = [{"nr":7,"created":"2013-02-22T16:45:15Z","subject":"pset00warmup.pdf has been added to class homepage under Resources","content":"The teaching staff has posted a new problem_sets_&amp;amp;_concepts_assignment resource.\n\nTitle: pset00warmup.pdf\n\n\nYou can view it on the course page: https://piazza.com/alexu.edu.eg/spring2013/cc485/resources\n\n#class-resources #homework","client_time":"2/22/13 6:45 PM","id":"hdhkm9fdesm6i3"},{"nr":11,"created":"2013-02-27T18:27:31Z","subject":"Lab0.pdf has been added to class homepage under Resources","content":"Dear Students,\n\nLab0.pdf and helloworld2.rar have been added under Resources, You must compile and run the 2 examples before our next lab isA.\n\nIf you face any problem in setup the environment let us know.\n\nGood Luck All \n\n\nYou can view it on the course page: https://piazza.com/alexu.edu.eg/spring2013/cc485/resources\n\n#class-resources #homework","client_time":"2/27/13 8:27 PM","id":"hdoth16bjk32nl"},{"nr":17,"created":"2013-03-06T11:09:32Z","subject":"lab1.pdf has been added to class homepage under Resources","content":"Dear Students,\n\nlab1.pdf has been added, You should try to \ufb01ll the missing part at home before submitting at lab. There will be a discussion during the submitting. \n\nTitle: lab1.pdf\nhttp://www.piazza.com/class_profile/get_resource/hd0k86kr39s705/hdydqfztpft3l9\n\n\nYou can view it on the course page: https://piazza.com/alexu.edu.eg/spring2013/cc485/resources\n\n#class-resources #homework","client_time":"3/06/13 1:09 PM","id":"hdydwqkgvei6yd"},{"nr":21,"created":"2013-03-15T11:42:15Z","subject":"lab2.pdf has been added to class homepage under Resources","content":"Dear Students,\n\nlab2.pdf has been added, You should try to \ufb01ll the missing part at home before submitting at lab. There will be a discussion during the submitting.\nPlease read the .pdf carefully before start filling the missing part.\n\nTitle: lab2.pdf\n\n\nYou can view it on the course page: https://piazza.com/alexu.edu.eg/spring2013/cc485/resources\n\n#class-resources #homework","client_time":"3/15/13 1:42 PM","id":"heba1hczknm1h9"},{"nr":23,"created":"2013-03-17T23:00:45Z","subject":"Regarding our Labs","content":"Dear Students,\n\nI think by now all students who registered for our course are enrolled in Piazza.\n\nWell, regarding our labs we want to clarify some points.\n\nAs you notice that number of students reaches 100 so we can\u2019t with any means compress all these number into 2 sections, so Tuesday Section will work till the end of our semester isA.\n\nRegarding our marking schema as you know our labs are assigned just 5 % of the year work, we are spending too much effort and time by having submission and discussion for each lab. This was not Dr.Mohamed vision for the labs anyways he thinks for a better model is to make no submission required. We will help you do the exercise in the lab. Give time to explaining the material required for the lab and any problem set later on isA. Ahmed and I want you to achieve the best you can. With this change, lab marks will be mainly on attendance, however, we will assign a kind of a marker for each student who makes an effort during the lab and this will be reflected on your discussion of the assignments later ; \u201cShow me your work and effort to memorize you!! \u201c, you are old enough to be responsible for yourself.\n\nFor this week isA I will sit with each student individually who still has a problem in Setup OpenGL on his machine as we need to finish all these problems this week and Ahmed will check with you lab 2 isA.\n\nYou will receive from me a frequent message on Piazza but please spread this out on your group to be sure that everyone read it!\n\n\nThanks in advance and best of luck ! \n\nRegards,\nEng.Tawab","client_time":"3/18/13 1:00 AM","id":"heet5qk7xl3r0"},{"nr":26,"created":"2013-03-23T09:05:05Z","subject":"lab3.pdf has been added to class homepage under Resources","content":"Dear Students,\n\nlab3.pdf has been added, You should try to \ufb01ll the missing parts at home before submitting at lab. Please read the .pdf carefully before start filling the missing parts.\n\nTitle: lab3.pdf\n\n\nYou can view it on the course page: https://piazza.com/alexu.edu.eg/spring2013/cc485/resources\n\n#class-resources #homework","client_time":"3/23/13 11:05 AM","id":"hemjy6n3n8f61k"},{"nr":35,"created":"2013-04-05T21:16:45Z","subject":"lab4.pdf has been added to class homepage under Resources","content":"Dear Students,\n\nlab4.pdf has been added, You should try to \ufb01ll the missing parts at home before submitting at lab. Please read the .pdf carefully before start filling the missing parts.\n\nYou can view it on the course page: https://piazza.com/alexu.edu.eg/spring2013/cc485/resources\n\n#class-resources #homework","client_time":"4/05/13 11:16 PM","id":"hf5ut66opm75te"},{"nr":36,"created":"2013-04-07T21:02:27Z","subject":"pset1.pdf has been added to class homepage under Resources","content":"The teaching staff has posted a new labs resource.\n\nTitle: pset1.pdf\n\n<b>pset1.pdf has been added to class homepage under Resources</b>\n\n\nYou can view it on the course page: https://piazza.com/alexu.edu.eg/spring2013/cc485/resources\n\n#class-resources #homework","client_time":"4/07/13 11:02 PM","id":"hf8p6hzq9dt2ou"},{"nr":42,"created":"2013-04-12T23:04:49Z","subject":"Intro_Tutorial.pdf and Transformations_Tutorial.pdf has been added to class homepage under Resources","content":"The teaching staff has posted a new problem_sets_&amp;amp;_concepts_assignment resource.\n\nTitle: Intro_Tutorial.pdf and Transformations_Tutorial.pdf\n\n\nYou can view it on the course page: https://piazza.com/alexu.edu.eg/spring2013/cc485/resources\n\n#class-resources #homework","client_time":"4/13/13 1:04 AM","id":"hffyr419em26vi"},{"nr":43,"created":"2013-04-13T17:02:37Z","subject":"assignment1.pdf has been added to class homepage under Resources","content":"The teaching staff has posted a new labs resource.\n\nTitle: assignment1.pdf\nhttp://www.piazza.com/class_profile/get_resource/hd0k86kr39s705/hfh14r9roa9wo\n\n Due date: Apr 27, 2013\n\nYou can view it on the course page: https://piazza.com/alexu.edu.eg/spring2013/cc485/resources\n\n#class-resources #homework","client_time":"4/13/13 7:01 PM","id":"hfh196g29dk25r"},{"nr":47,"created":"2013-04-15T10:31:48Z","subject":"traffic_flow.txt has been added to class homepage under Resources","content":"The teaching staff has posted a new labs resource.\n\nTitle: traffic_flow.txt\n\n\nYou can view it on the course page: https://piazza.com/alexu.edu.eg/spring2013/cc485/resources\n\n#class-resources #homework","client_time":"4/15/13 12:31 PM","id":"hfji6ai0l9v1s6"},{"nr":48,"created":"2013-04-20T20:22:49Z","subject":"Quiz this week","content":"Dear Students,\n\nWe will have a small quiz for 20 mins at the end of each lab this week isA.\n\nThe quiz will cover Transformations and ProblemSet 1 \n\nPlease spread this. \n\nGood luck","client_time":"4/20/13 10:22 PM","id":"hfr8hlbb5ic45x"},{"nr":59,"created":"2013-04-21T21:30:23Z","subject":"lab5.pdf has been added to class homepage under Resources","content":"The teaching staff has posted a new labs resource.\n\nTitle: lab5.pdf\nLab5 will be solved during the Tutorial time\n\nYou can view it on the course page: https://piazza.com/alexu.edu.eg/spring2013/cc485/resources\n\n#class-resources #homework","client_time":"4/21/13 11:30 PM","id":"hfsqcbzfayg787"},{"nr":64,"created":"2013-04-25T20:45:44Z","subject":"Transformation_Tutorial_Part2.pdf has been added to class homepage under Resources","content":"Dear Students,\n\nHere you are the rest of out transformation tutorial.\n\nIt is very important for our quiz next week isA.\n\nAlso, if you need me to re-scan part 1 ( as I used my mobile ) or even drop it in any laser center as a hard copy please let me know.\n\nBest Of luck ! \n\nTitle: Transformation_Tutorial_Part2.pdf\n\n\nYou can view it on the course page: https://piazza.com/alexu.edu.eg/spring2013/cc485/resources\n\n#class-resources #homework","client_time":"4/25/13 10:45 PM","id":"hfyeibo4atv71b"},{"nr":66,"created":"2013-04-27T22:34:45Z","subject":"lab6.pdf has been added to class homepage under Resources","content":"The teaching staff has posted a new labs resource.\n\nTitle: lab6.pdf\n\n\nYou can view it on the course page: https://piazza.com/alexu.edu.eg/spring2013/cc485/resources\n\n#class-resources #homework","client_time":"4/28/13 12:34 AM","id":"hg1da85wbh93ap"},{"nr":71,"created":"2013-04-28T18:40:14Z","subject":"Quiz Reminder","content":"Dear Students,\n\nPlease don't forget that we will have a quiz for 30 mins in our sections this week isA. Please attend in the period you used to attend in. \n\nThe quiz will cover Geometric Transformations and problem set 1.\n\nDon't forget to bring with you answer paper just in case you need it.\n\nGood Luck.\n\n","client_time":"4/28/13 8:40 PM","id":"hg2kchdicvv2k1"},{"nr":75,"created":"2013-04-29T19:00:57Z","subject":"Assignment 1 Delivery Instructions (And New Due Date)","content":"Assignment 1 new Due Date is <b>Thursday 2 May, 11:59 pm </b>(according to @74)\n\nYou are required to send your complete source code in a compressed file to the email described below,\nplease make sure that your code compiles with no errors, as we are going to try to compile as many projects as we could on our computers to make the delivery and discussion as fast as possible.\n\n<ul>\n<li><b>Email</b> : computer.graphics.ssp@gmail.com</li>\n<li><b>Subject</b> : A1_ID_FirstName_LastName</li>\n<li><b>Body:   </b>ID -  Full Name</li>\n<li><b>Attached File Name :  A1_ID_FirstName_LastName.zip</b></li>\n</ul>\n\nWhere <b>ID</b> is your identification number\n\n\nThanks\n","client_time":"4/29/13 9:00 PM","id":"hg40izll6ol6lc"}];
+    this.sections             = {};
+    this.user_config          = {"email_prefs":{"gyvb7a8klm7270":{"updates":"realtime","auto_follow":"","new":"realtime"},"h7oz4bn3dqb3la":{"updates":"realtime","auto_follow":"","new":"no-emails"},"hddbnu0innx3wv":{"updates":"realtime","auto_follow":"","new":"no-emails"},"hd0k86kr39s705":{"updates":"realtime","auto_follow":"","new":"no-emails"},"h7awb3xj5moso":{"updates":"realtime","auto_follow":"","new":"no-emails"},"h7m32a5v1685yd":{"updates":"realtime","auto_follow":"","new":"no-emails"},"gyewyvluec64ja":{"updates":"realtime","auto_follow":"","new":"realtime"},"hdvvhxr2hmw4sh":{"updates":"realtime","auto_follow":"","new":"no-emails"},"hdbg1ka4u1c40l":{"updates":"realtime","auto_follow":false,"new":"auto_throttle"}},"hide_stats":"yes","class_list":{"gyvb7a8klm7270":1,"h7oz4bn3dqb3la":4,"h7awb3xj5moso":3,"gyewyvluec64ja":0,"hdbg1ka4u1c40l":2},"m_email_prefs":{"reminders":"on","news":"off","features":"on","timestamp":"2012-10-11T14:31:39Z"},"last_notif":{"gyewyvluec64ja":"2012-03-10T00:24:04Z"},"feed_details":"yes","last_networks":["hddbnu0innx3wv","hdvvhxr2hmw4sh","hd0k86kr39s705"],"feed":{"updated":1.0,"unread":1.0,"following":1.0},"email_throttle":{"hddbnu0innx3wv":1361567374000,"hd0k86kr39s705":1361566432000,"h7awb3xj5moso":-1,"h7m32a5v1685yd":-1,"hdvvhxr2hmw4sh":1362587734000},"seen_message":["tutorial","home_button_msg","tutorial_dashboard","tutorial_newPost","tutorial_questionFeed","simple_account_settings","feed_view_toggle_msg","list-other-classes-spring2013"],"logins":630,"in_roster":["hdbg1ka4u1c40l","hdvvhxr2hmw4sh"],"email_throttle_on":0};
+
+    for (var i = 0; i < this.staff_info.length; i++) {
+      var staff = this.staff_info[i];
+      PA.users[staff['id']] = staff;
+    }
+
+    /* This css support allows us to hide UI elements that are normally */
+    if (this.user_type == "prof") {
+    	this.isInst = false;
+    	this.page.addClass("is_inst");
+    } else this.isInst = false;
+
+    this.init_tabs();
+    this.page.show();
+
+    this.syllabus.append(ich.tpl_syllabus(this.network));
+    PU.resizeFontToHeight(this.header.find(".container"), this.header.find("h1"), "160", "28");
+
+    this.init_syllabus();
+    this.log_class_profile_users_seen();
+  },
+  log_class_profile_users_seen: function() {
+    PA.call_pj("network.log_class_profile_users_seen", {
+      nid: this.nid
+    }, 1, (function() {}), Util.ajax_error_callback, this);
+  },
+  init_tabs: function() {
+    new CourseInformationTab({
+      el: this.home,
+      nid: this.nid,
+      network: this.network,
+      user_type: this.user_type,
+      announcement_visibility: this.visibility_settings['announcements'],
+      announcement_data: this.announcement_data
+    });
+    new ResourcesTab({
+      el: this.resources,
+      nid: this.nid,
+      user_type: this.user_type,
+      visibility: this.visibility_settings,
+      resource_section_info: this.resource_sections,
+      resource_data: this.resource_data
+    });
+    new InstructorCollectionController({
+      el: this.staff,
+      nid: this.nid,
+      instructors: this.staff_info || [],
+      office_hours: this.network.office_hours || {}
+    });
+    new ClassSectionCollectionController({
+      el: this.class_sections,
+      nid: this.nid,
+      sections: this.sections,
+      user_config: this.user_config,
+      user_type: this.user_type
+    });
+
+    $('a[data-toggle="tab"]').on('shown', function(e) {
+      var route_to = e.target.hash.substr(1);
+      if (route_to == "course_information") route_to = "home"
+
+      if (window.history.pushState) window.history.pushState("object or string", "Title", route_to);
+
+      if (PA && PA.isUserNewInstructor()) { PA.log_action("course_homepage_" + route_to + "_view"); }
+    });
+  },
+  route_to_tab: function() {
+    var deepParams, tab;
+    deepParams = PU.getDeepParams();
+
+    tab = this.page_section;
+    if (typeof nottab !== "undefined" && nottab !== null) {
+      tab = "home";
+    }
+    tab = "#tab_" + tab;
+    $(tab).tab('show');
+  },
+  init_syllabus: function() {
+    new SyllabusController({
+      el: $("#syllabus"),
+      network: this.network,
+      user_type: this.user_type
+    });
+  }
+});
+
+$(function() {
+  new ClassProfile({
+    el: $("body")
+  });
+});
+
+</script>
+    <script type="text/javascript" src="/javascripts/piazza/class_profile/project_teams.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.tipsy.js"></script>
+    <script type="text/javascript" src="/javascripts/sliding-panel.js?v=5261"></script>
+
+    <script>
+    	$(document).ready(function() {
+        /* This event is only triggered to logged in users */
+        PT.events.observe("networks_loaded", function() {
+          PT.populateDropdowns("hd0k86kr39s705");
+          //PT.setInstructorInviteCoursePage(); 
+        });
+
+        /* Handle login errors */
+        
+
+        /* Login slider */
+        $('.loginButton').click(function() {
+          openSlidingPanel($('#LoginPanel'));
+          $('#email_field').focus();
+        });
+
+        /* Privacy tooltip for professors */
+        $('.public_visibility_logo').mouseover(function() {
+          $('#public_visibility_message').removeClass('hide');
+          $('#public_visibility_message').delay(4500).fadeOut('slow', function() {
+            $('#public_visibility_message').addClass('hide');
+            $('#public_visibility_message').show();
+          });
+        });
+
+        var currentAnnouncementId = null;
+
+        //mode view for description
+        function desc_modeView() {
+          $('.section_description').removeClass("editing");
+          if ($('.section_description').item.text === "") alert('desc empty');//this.tutorial.removeClass("hide");
+        }
+        //mode view for general information
+        function gen_inf_modeView() {
+          $('.section_general_information').removeClass("editing");
+          if ($('.section_description').item.text === "") alert('gen inf empty'); //this.tutorial.removeClass("hide");
+        }
+        $(".section_description .btn_cancel").click(function() {
+          $('#desc_cancelChanges').modal('show');
+        });
+        $(".section_general_information .btn_cancel").click(function() {
+          $('#gi_cancelChanges').modal('show');
+        });
+        $("#desc_cancelChanges .btn-primary").click(function() {
+          $('.section_description .desc_cancel').click();
+          $('#desc_cancelChanges').modal('hide');
+        });
+        $("#gi_cancelChanges .btn-primary").click(function() {
+          $('.section_general_information .gi_cancel').click();
+          $('#gi_cancelChanges').modal('hide');
+        });
+
+        $(".announcement_header .btn_edit").live("click", function() {
+          var nr = $(this).closest(".announcement").attr("nr");
+          var url = "/class#" + "spring2013/cc485" + "/" + nr;
+          window.open(url);
+        });
+
+        $(".view_more").live("click", function() {
+          var announcement = $(this).closest(".announcement");
+          $(announcement).removeClass('make_short');
+          $(announcement).addClass('make_long');
+          $(announcement).removeClass('long');
+          return false;
+        });
+
+        $(".view_less").live("click", function() {
+          var announcement = $(this).closest(".announcement");
+          $(announcement).removeClass('make_long');
+          $(announcement).addClass('make_short');
+          return false;
+        });
+        $("a.homepage").live("click", function() {
+
+          PA.call("content.unannounce", {cid: currentAnnouncementId}, null, function(data){
+            //alert(data);
+          },
+          function(err) {
+            alert(err);
+          });
+          $('#deleteAnnouncement').modal('hide');
+          var announcement = $('#'+currentAnnouncementId);
+          $(announcement).hide();
+        });
+        $("a.dashboard").live("click", function() {
+          PA.call_pj("content.delete", {cid: currentAnnouncementId}, null, function(data){
+            //alert(data);
+          },
+          function(err) {
+            alert(err);
+          });
+          $('#deleteAnnouncement').modal('hide');
+          var announcement = $('#'+currentAnnouncementId);
+          $(announcement).hide();
+        });
+
+        $(".announcement_header .btn_cancel").live("click", function() {
+          var announcement = $(this).closest(".announcement");
+          currentAnnouncementId = $(announcement).attr("id");
+          $('#deleteAnnouncement').modal('show');
+        });
+
+        PT.events.observe("network_change", function() {
+          $('#Page').show();
+          var newNetwork = PA.getNetwork(currentNetworkId);
+          //PT.setInstructorInviteCoursePage();
+          if (newNetwork.status === 'wishlist') {
+            PT.selectedWishlist = currentNetworkId;
+            PA.load("/invite/profs", $('#Page'), function(html) {
+              // hide current view
+              $('.inviteProfs, #PageWrapper > .clearFix').remove();
+              $('.inviteProfsPageMain').parent().remove();
+              $('#Page').hide();
+              $('#PageMain .views').hide();
+              $('#PageWrapper').prepend(html);
+              // hide dropdown
+              $('.dropdownToggler').removeClass('active');
+              $('.dropdownMenu').hide();
+              if(newNetwork.email_sent) {
+                $('.inviteProfs, .inviteProfsPageMain').addClass('inviteSent');
+              }
+
+              if(!Piazza.InviteProfs) {
+                $.getScript('js/dashboard/invite_profs_js.js', function() {
+                  Piazza.InviteProfs.init();
+                });
+              } else {
+                Piazza.InviteProfs.init();
+              }
+            });
+            return;
+          }
+        });
+    	});
+
+    </script>
+
+</body>
+</html>
+
